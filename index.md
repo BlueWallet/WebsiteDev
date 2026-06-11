@@ -10,7 +10,9 @@ cover: home.png
 
 {% include boxes.html columns="3" title="What you can do with BlueWallet" subtitle="Besides receiving, sending and storing Bitcoin, you can do a lot more..." %}
 
+{% include home-power-features.html %}
 
+{% include home-community.html %}
 
 <!--
 {% include featured.html tag="featured" title="Popular Articles" subtitle="Selected featured articles to get you started fast in Jekyll" %}

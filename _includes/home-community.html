@@ -1,0 +1,43 @@
+<div class="uk-section section-community">
+  <div class="uk-container">
+    <div class="section-home-header">
+      <h2 class="uk-h1 uk-margin-remove-top">Community</h2>
+      <p class="uk-text-lead uk-margin-small-top">Be part, contribute as you can and stay up-to-date. Bitcoin is winning.</p>
+    </div>
+
+    <div class="community-grid">
+      <div>
+        <div class="community-card community-card--contribute">
+          <h3 class="community-card-title">Contribute</h3>
+          <p class="community-card-subtitle">Free Open Source Software</p>
+          <p class="community-card-text">BlueWallet is free and open source software. Build in public by a community. And, one of the most used products in Bitcoin. Self-custody will win, but your contribution really matters. See how you can start contributing today.</p>
+          <div class="community-card-actions">
+            <a href="{{ site.baseurl }}/contribute/" class="uk-button uk-button-primary uk-button-large community-btn">Contribute</a>
+            <a href="https://donate.bluewallet.io" target="_blank" rel="noopener" class="uk-button uk-button-large community-btn community-btn--donate">Donate</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        {% assign latest_post = site.posts | first %}
+        {% if latest_post %}
+        <a href="{{ latest_post.url | relative_url }}" class="community-card community-card--blog">
+          {% if latest_post.image %}
+            <div class="community-blog-image">
+              <img src="{% if latest_post.image contains 'http' %}{{ latest_post.image }}{% else %}{{ site.uploads | absolute_url }}{{ latest_post.image }}{% endif %}" alt="" loading="lazy">
+            </div>
+          {% elsif latest_post.cover %}
+            <div class="community-blog-image">
+              <img src="{% if latest_post.cover contains 'http' %}{{ latest_post.cover }}{% else %}{{ site.uploads | absolute_url }}{{ latest_post.cover }}{% endif %}" alt="" loading="lazy">
+            </div>
+          {% else %}
+            <div class="community-blog-image community-blog-image--placeholder" aria-hidden="true"></div>
+          {% endif %}
+          <h3 class="community-blog-title">{{ latest_post.title }}</h3>
+          <p class="community-blog-excerpt">{{ latest_post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

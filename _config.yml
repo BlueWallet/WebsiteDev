@@ -175,3 +175,5 @@ defaults:
       type:         docs
     values:
       layout:       doc
+      seo:
+        type:       WebPage

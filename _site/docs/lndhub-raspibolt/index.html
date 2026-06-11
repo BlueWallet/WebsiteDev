@@ -5,21 +5,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>LNDhub with raspibolt | BlueWallet - Bitcoin Wallet for iOS and Android</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="LNDhub with raspibolt" />
 <meta name="author" content="BlueWallet" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Install Redis" />
-<meta property="og:description" content="Install Redis" />
+<meta name="twitter:description" property="og:description" content="Install Redis" />
 <link rel="canonical" href="https://bluewallet.io/docs/lndhub-raspibolt/" />
 <meta property="og:url" content="https://bluewallet.io/docs/lndhub-raspibolt/" />
 <meta property="og:site_name" content="BlueWallet - Bitcoin Wallet for iOS and Android" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-09T17:21:26+02:00" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LNDhub with raspibolt" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://bluewallet.io/docs/lndhub-raspibolt/"},"@type":"BlogPosting","url":"https://bluewallet.io/docs/lndhub-raspibolt/","author":{"@type":"Person","name":"BlueWallet"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"headline":"LNDhub with raspibolt","dateModified":"2024-09-09T17:21:26+02:00","description":"Install Redis","datePublished":"2024-09-09T17:21:26+02:00","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"BlueWallet"},"description":"Install Redis","headline":"LNDhub with raspibolt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"url":"https://bluewallet.io/docs/lndhub-raspibolt/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -352,7 +353,7 @@
 
 <p>Download Redis</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /home/admin/download
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /home/admin/download
 $ rm -rf /home/admin/download/*
 $ wget http://download.redis.io/releases/redis-5.0.3.tar.gz
 $ tar xzf redis-5.0.3.tar.gz
@@ -361,32 +362,32 @@ $ cd redis-5.0.3/
 
 <p>Make &amp; install</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
 $ sudo make install
 </code></pre></div></div>
 
 <p>Create the working directory for Redis. We will create it on the external hard disk</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /mnt/hdd/redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /mnt/hdd/redis
 
 </code></pre></div></div>
 
 <p>Create the redis user</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo adduser --system --group --no-create-home redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo adduser --system --group --no-create-home redis
 $ sudo chown redis:redis /mnt/hdd/redis
 $ sudo chmod 770 /mnt/hdd/redis
 </code></pre></div></div>
 
-<p>Make a directory for the <code class="highlighter-rouge">redis.conf</code> file &amp; copy the default conf file to it.</p>
+<p>Make a directory for the <code class="language-plaintext highlighter-rouge">redis.conf</code> file &amp; copy the default conf file to it.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /etc/redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /etc/redis
 $ sudo cp redis.conf /etc/redis
 </code></pre></div></div>
 
-<p>Edit the <code class="highlighter-rouge">redis.conf</code> to change the supervised &amp; dir options.</p>
+<p>Edit the <code class="language-plaintext highlighter-rouge">redis.conf</code> to change the supervised &amp; dir options.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nano /etc/redis/redis.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nano /etc/redis/redis.conf
 # If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
 #   supervised no      - no supervision interaction
@@ -399,9 +400,9 @@ $ sudo cp redis.conf /etc/redis
 supervised systemd
 </code></pre></div></div>
 
-<p>Find <code class="highlighter-rouge">supervised no</code> and change it to <code class="highlighter-rouge">supervised systemd</code></p>
+<p>Find <code class="language-plaintext highlighter-rouge">supervised no</code> and change it to <code class="language-plaintext highlighter-rouge">supervised systemd</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you run Redis from upstart or systemd, Redis can interact with your
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
 #   supervised no      - no supervision interaction
 #   supervised upstart - signal upstart by putting Redis into SIGSTOP mode
@@ -413,9 +414,9 @@ supervised systemd
 supervised systemd
 </code></pre></div></div>
 
-<p>Find <code class="highlighter-rouge">dir</code> and set it to <code class="highlighter-rouge">/mnt/hdd/redis</code></p>
+<p>Find <code class="language-plaintext highlighter-rouge">dir</code> and set it to <code class="language-plaintext highlighter-rouge">/mnt/hdd/redis</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The working directory.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The working directory.
 #
 # The DB will be written inside this directory, with the filename specified
 # above using the 'dbfilename' configuration directive.
@@ -430,11 +431,11 @@ dir /mnt/hdd/redis
 
 <p>Setup Redis to start automatically on system startup. Edit the system service config for redis</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/redis.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/redis.service
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
 Description=Redis In-Memory Data Store
 After=network.target
 
@@ -452,13 +453,13 @@ WantedBy=multi-user.target
 
 <p>Start up redis via the systemctl and test the status</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start redis
 $ sudo systemctl status redis
 </code></pre></div></div>
 
 <p>Test redis is running</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ redis-cli
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ redis-cli
 127.0.0.1:6379&gt; ping
 PONG
 127.0.0.1:6379&gt; exit
@@ -466,12 +467,12 @@ PONG
 
 <p>Enable the service</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable redis
 </code></pre></div></div>
 
 <p>Clean up</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm -rf /home/admin/download/*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm -rf /home/admin/download/*
 
 </code></pre></div></div>
 
@@ -479,42 +480,42 @@ PONG
 
 <p>Download Node</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /home/admin/download
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /home/admin/download
 $ wget https://nodejs.org/dist/v10.15.1/node-v10.15.1-linux-armv7l.tar.xz
 </code></pre></div></div>
 
-<p>Extract to <code class="highlighter-rouge">usr/local/lib</code></p>
+<p>Extract to <code class="language-plaintext highlighter-rouge">usr/local/lib</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /usr/local/lib/nodejs/node-v10.15.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /usr/local/lib/nodejs/node-v10.15.1
 $ sudo tar -xf node-v10.15.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs/node-v10.15.1
 </code></pre></div></div>
 
-<p>Link node version into <code class="highlighter-rouge">/usr/local/bin</code></p>
+<p>Link node version into <code class="language-plaintext highlighter-rouge">/usr/local/bin</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ln -s /usr/local/lib/nodejs/node-v10.15.1/bin/node /usr/local/bin/node
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ln -s /usr/local/lib/nodejs/node-v10.15.1/bin/node /usr/local/bin/node
 $ sudo ln -s /usr/local/lib/nodejs/node-v10.15.1/bin/npm /usr/local/bin/npm
 </code></pre></div></div>
 
 <p>Test node &amp; npm is linked correctly</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node -v
 $ npm -v
 </code></pre></div></div>
 
 <p>Clean up</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm -rf /home/admin/download/*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm -rf /home/admin/download/*
 </code></pre></div></div>
 
 <h3>Port Forwarding and Uncomplicated Firewall</h3>
 
-<p>We need to open up port 3000 on the router and allow access through <code class="highlighter-rouge">ufw</code>. Follow the steps as you have done previously opening the port forwarding on your router. Add a new port forwarding configuration with the following settings:</p>
+<p>We need to open up port 3000 on the router and allow access through <code class="language-plaintext highlighter-rouge">ufw</code>. Follow the steps as you have done previously opening the port forwarding on your router. Add a new port forwarding configuration with the following settings:</p>
 
 <p>Application nameExternal portInternal portInternal IP addressProtocol (TCP or UDP)LndHub 3000 3000 YOUR:NODE:IP:ADDR TCP </p>
 
 <p>Allowing access in ufw</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo su
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo su
 $ ufw allow 3000 comment 'allow LndHub'
 $ ufw reload
 $ exit
@@ -524,35 +525,35 @@ $ exit
 
 <p>Make sure your lnd node is unlocked before running LndHub</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lncli unlock
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lncli unlock
 </code></pre></div></div>
 
 <h3>Install LndHub</h3>
 
 <p>Switch user to bitcoin</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ su - bitcoin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ su - bitcoin
 
 </code></pre></div></div>
 
 <p>Clone the LndHub repository</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/BlueWallet/LndHub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/BlueWallet/LndHub
 </code></pre></div></div>
 
-<p>Copy the <code class="highlighter-rouge">tls.cert</code> and <code class="highlighter-rouge">admin.macaroon</code> files into LndHub</p>
+<p>Copy the <code class="language-plaintext highlighter-rouge">tls.cert</code> and <code class="language-plaintext highlighter-rouge">admin.macaroon</code> files into LndHub</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp .lnd/data/chain/bitcoin/mainnet/admin.macaroon LndHub/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp .lnd/data/chain/bitcoin/mainnet/admin.macaroon LndHub/
 $ cp .lnd/tls.cert LndHub/
 </code></pre></div></div>
 
-<p>Edit the LndHub <code class="highlighter-rouge">config.js</code> file to add bitcoin RPC credentials</p>
+<p>Edit the LndHub <code class="language-plaintext highlighter-rouge">config.js</code> file to add bitcoin RPC credentials</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd LndHub/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd LndHub/
 $ nano config.js
 </code></pre></div></div>
 
-<p>Edit the <code class="highlighter-rouge">config.js</code> file</p>
+<p>Edit the <code class="language-plaintext highlighter-rouge">config.js</code> file</p>
 
 <ul>
   <li>Change bitcoind.rpc login:password to match the rpcuser &amp; rpcpassword in your bitcoin.conf. Your rpcpassword may need to be URL encoded if it contains special characters. You can use an online service like <a href="https://meyerweb.com/eric/tools/dencoder/">https://meyerweb.com/eric/tools/dencoder/</a> to encode it (it does not send your rpcpassword anywhere).</li>
@@ -560,7 +561,7 @@ $ nano config.js
   <li>Change the redis port from 12914 to 6379</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let config = {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let config = {
   bitcoind: {
     rpc: 'http://rpcuser:rpcpassword@127.0.0.1:8332',
   },
@@ -578,38 +579,38 @@ $ nano config.js
 
 <p>Install required node modules</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm config set prefix '~/.npm-global'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm config set prefix '~/.npm-global'
 $ export PATH=~/.npm-global/bin:$PATH
 $ npm install
 </code></pre></div></div>
 
 <p>Compile babeljs</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g babel-cli
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g babel-cli
 $ mkdir build
 $ babel ./ --out-dir ./build --copy-files --ignore node_modules
 </code></pre></div></div>
 
 <p>Run LndHub</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node build/index.js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node build/index.js
 </code></pre></div></div>
 
-<p>Check for <code class="highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
+<p>Check for <code class="language-plaintext highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
 
 <h3>Autostart LndHub</h3>
 
 <p>Setup LndHub to start automatically on system startup. Switch back to the “admin” user or login as “admin”</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exit
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exit
 </code></pre></div></div>
 
 <p>Edit the system service config for LndHub</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/lndhub.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/lndhub.service
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
 Description=LndHub Wrapper for Lightning Daemon
 Wants=lnd.service
 After=lnd.service
@@ -633,13 +634,13 @@ WantedBy=multi-user.target
 
 <p>Start up LndHub via the systemctl</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable lndhub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable lndhub
 $ sudo systemctl start lndhub
 </code></pre></div></div>
 
-<p>Check the lndhub log file for <code class="highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
+<p>Check the lndhub log file for <code class="language-plaintext highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo journalctl -f -u lndhub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo journalctl -f -u lndhub
 </code></pre></div></div>
 
 <p>LndHub should now be ready to use in the BlueWallet, but first</p>
@@ -1154,8 +1155,9 @@ $ sudo systemctl start lndhub
     
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="/assets/js/phone.js"></script>
 <script src="/assets/js/newsletter.js"></script>
+<script src="/assets/js/release-info.js"></script>
+<script src="/assets/js/contribute.js"></script>
 
     </body>
 
