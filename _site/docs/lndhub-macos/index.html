@@ -5,21 +5,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>LNDHub on Mac OSX | BlueWallet - Bitcoin Wallet for iOS and Android</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="LNDHub on Mac OSX" />
 <meta name="author" content="BlueWallet" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Requirements:" />
-<meta property="og:description" content="Requirements:" />
+<meta name="twitter:description" property="og:description" content="Requirements:" />
 <link rel="canonical" href="https://bluewallet.io/docs/lndhub-macos/" />
 <meta property="og:url" content="https://bluewallet.io/docs/lndhub-macos/" />
 <meta property="og:site_name" content="BlueWallet - Bitcoin Wallet for iOS and Android" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-09T17:21:26+02:00" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LNDHub on Mac OSX" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://bluewallet.io/docs/lndhub-macos/"},"@type":"BlogPosting","url":"https://bluewallet.io/docs/lndhub-macos/","author":{"@type":"Person","name":"BlueWallet"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"headline":"LNDHub on Mac OSX","dateModified":"2024-09-09T17:21:26+02:00","description":"Requirements:","datePublished":"2024-09-09T17:21:26+02:00","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"BlueWallet"},"description":"Requirements:","headline":"LNDHub on Mac OSX","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"url":"https://bluewallet.io/docs/lndhub-macos/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -388,16 +389,16 @@
 
 <p>2A — Set up the LNDHub</p>
 
-<p>git clone <a href="mailto:git@github.com">git@github.com</a>:BlueWallet/LndHub.git\
+<p>git clone <a href="mailto:git@github.com">git@github.com</a>:BlueWallet/LndHub.git<br />
 cd LndHub</p>
 
-<p>2B— Copy in the LND Macaroon <code class="highlighter-rouge">admin.macaroon</code>to the LndHub directory. Quick find from NodeLauncher, “<strong>Show Macroons</strong>”:</p>
+<p>2B— Copy in the LND Macaroon <code class="language-plaintext highlighter-rouge">admin.macaroon</code>to the LndHub directory. Quick find from NodeLauncher, “<strong>Show Macroons</strong>”:</p>
 
 <p><img src="/assets/img/uploads/3.png" alt="" /></p>
 
 <p>Click “Show Macaroons”</p>
 
-<p>2C — Copy in the <code class="highlighter-rouge">tls.cert</code> file. Quick find by Nodelauncher “<strong>Advanced</strong>” menu, then “S<strong>how lnd.conf</strong>”</p>
+<p>2C — Copy in the <code class="language-plaintext highlighter-rouge">tls.cert</code> file. Quick find by Nodelauncher “<strong>Advanced</strong>” menu, then “S<strong>how lnd.conf</strong>”</p>
 
 <p><img src="/assets/img/uploads/4.png" alt="" /></p>
 
@@ -407,7 +408,7 @@ cd LndHub</p>
 
 <p>Copy this file into LndHub folder</p>
 
-<p>2D — Edit the LndHub <code class="highlighter-rouge">config.js</code> file to add bitcoin RPC credentials</p>
+<p>2D — Edit the LndHub <code class="language-plaintext highlighter-rouge">config.js</code> file to add bitcoin RPC credentials</p>
 
 <p>sudo nano config.js</p>
 
@@ -424,18 +425,18 @@ cd LndHub</p>
 
 <p>3A —Install Redis, then create the working directory inside the LndHub folder</p>
 
-<p>brew install redis\
+<p>brew install redis<br />
 sudo mkdir redis</p>
 
-<p>3B — Edit the <code class="highlighter-rouge">redis.conf</code> file</p>
+<p>3B — Edit the <code class="language-plaintext highlighter-rouge">redis.conf</code> file</p>
 
 <p>sudo nano /usr/local/etc/redis.conf</p>
 
-<p>Change the supervision <code class="highlighter-rouge">supervised systemd</code> :</p>
+<p>Change the supervision <code class="language-plaintext highlighter-rouge">supervised systemd</code> :</p>
 
 <p><img src="/assets/img/uploads/6.png" alt="" /></p>
 
-<p>Change the working directory to <code class="highlighter-rouge">dir /Users/&lt;user&gt;/LndHub/redis</code> :</p>
+<p>Change the working directory to <code class="language-plaintext highlighter-rouge">dir /Users/&lt;user&gt;/LndHub/redis</code> :</p>
 
 <p><img src="/assets/img/uploads/7.png" alt="" /></p>
 
@@ -447,25 +448,25 @@ sudo mkdir redis</p>
 
 <p>4A — Install Node, and then check versions</p>
 
-<p>brew install nodenode -v\
+<p>brew install nodenode -v<br />
 npm -v</p>
 
 <p>4B — Install node modules</p>
 
-<p>npm config set prefix ‘~/.npm-global’\
-export PATH=~/.npm-global/bin:$PATH\
+<p>npm config set prefix ‘~/.npm-global’<br />
+export PATH=~/.npm-global/bin:$PATH<br />
 npm install</p>
 
 <p>4C — Compile babeljs</p>
 
-<p>npm install -g babel-cli\
+<p>npm install -g babel-cli<br />
 mkdir buildbabel ./ –out-dir ./build –copy-files –ignore node_modules</p>
 
 <p>4D — Run LndHub</p>
 
 <p>node build/index.js</p>
 
-<p>Check for <code class="highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
+<p>Check for <code class="language-plaintext highlighter-rouge">'BOOTING UP' 'Listening on port 3000'</code></p>
 
 <p>Head to <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> to now see LndHub running.</p>
 
@@ -473,11 +474,11 @@ mkdir buildbabel ./ –out-dir ./build –copy-files –ignore node_modules</p>
 
 <p>Since LndHub is running locally, we need to forward external ports.</p>
 
-<p>5A — Head to <code class="highlighter-rouge">192.168.0.1</code> in your browser, and enter your router username and password. Google it if you don’t know, but normally <code class="highlighter-rouge">admin:password</code></p>
+<p>5A — Head to <code class="language-plaintext highlighter-rouge">192.168.0.1</code> in your browser, and enter your router username and password. Google it if you don’t know, but normally <code class="language-plaintext highlighter-rouge">admin:password</code></p>
 
-<p>5B — Find your computer’s MAC and IP address (displayed in “devices” or “overview”). Also can use <code class="highlighter-rouge">ifconfig</code> <a href="https://ithelp.brown.edu/kb/articles/find-the-mac-address-of-a-computer-or-device">to get MAC</a> and <code class="highlighter-rouge">ipconfig getifaddr en0</code><a href="https://apple.stackexchange.com/questions/20547/how-do-i-find-my-ip-address-from-the-command-line">to get local IP</a> in terminal.</p>
+<p>5B — Find your computer’s MAC and IP address (displayed in “devices” or “overview”). Also can use <code class="language-plaintext highlighter-rouge">ifconfig</code> <a href="https://ithelp.brown.edu/kb/articles/find-the-mac-address-of-a-computer-or-device">to get MAC</a> and <code class="language-plaintext highlighter-rouge">ipconfig getifaddr en0</code><a href="https://apple.stackexchange.com/questions/20547/how-do-i-find-my-ip-address-from-the-command-line">to get local IP</a> in terminal.</p>
 
-<p>5C — Navigate to “Games and Services” to find “Port Forwarding” and add your LndHub as a forwarded port on 3000. My local IP was <code class="highlighter-rouge">192.168.0.13</code></p>
+<p>5C — Navigate to “Games and Services” to find “Port Forwarding” and add your LndHub as a forwarded port on 3000. My local IP was <code class="language-plaintext highlighter-rouge">192.168.0.13</code></p>
 
 <p><img src="/assets/img/uploads/8.png" alt="" /></p>
 
@@ -999,8 +1000,9 @@ mkdir buildbabel ./ –out-dir ./build –copy-files –ignore node_modules</p>
     
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="/assets/js/phone.js"></script>
 <script src="/assets/js/newsletter.js"></script>
+<script src="/assets/js/release-info.js"></script>
+<script src="/assets/js/contribute.js"></script>
 
     </body>
 

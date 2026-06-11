@@ -1,0 +1,122 @@
+<div class="uk-section">
+  <div class="uk-container">
+    <div class="uk-margin-large-bottom">
+      <h1 class="uk-heading-primary">Contribute to Bitcoin</h1>
+      <p class="uk-text-lead">BlueWallet is one of the most used products in Bitcoin. Your contribution really matters and it will have a big impact on the future of Bitcoin. Join us in this adventure, Bitcoin is the most important idea of our generation. Let’s keep building!</p>
+    </div>
+
+    <section class="contribute-oss" aria-label="Open source">
+      <p class="contribute-oss-label">Powered by open source</p>
+      <p class="contribute-oss-lead">BlueWallet is proudly open source. If you are a developer, start with the readme, build your environment and start contributing. If you are not a developer, you can still contribute by reporting bugs, suggesting features, and translating the app into your language. See below for more details.</p>
+      <div class="contribute-oss-actions">
+        <a href="https://github.com/BlueWallet/BlueWallet#readme" target="_blank" rel="noopener" class="contribute-oss-btn">Read documentation</a>
+        <a href="https://github.com/BlueWallet/BlueWallet" target="_blank" rel="noopener" class="contribute-oss-btn">View code repository</a>
+      </div>
+      <div class="contribute-oss-stats">
+        <div class="contribute-oss-stat">
+          <p class="contribute-oss-stat-value" id="contribute-stat-releases">—</p>
+          <p class="contribute-oss-stat-label">Releases</p>
+        </div>
+        <div class="contribute-oss-stat">
+          <p class="contribute-oss-stat-value" id="contribute-stat-stars">—</p>
+          <p class="contribute-oss-stat-label">GitHub stars</p>
+        </div>
+        <div class="contribute-oss-stat">
+          <p class="contribute-oss-stat-value" id="contribute-stat-contributors">—</p>
+          <p class="contribute-oss-stat-label">Contributors</p>
+        </div>
+      </div>
+    </section>
+    <h2 class="uk-h2">Choose Your Weapon</h2>
+    <div class="contribute-cards uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-small" data-uk-grid data-uk-tab="connect: #contribute-panels">
+      <div class="uk-active">
+        <a href="#" class="contribute-card">
+          <span class="contribute-card-icon" data-uk-icon="icon: file-edit; ratio: 1.8"></span>
+          <h3>Developer</h3>
+          <p>Fix bugs, build features, and get your code merged.</p>
+        </a>
+      </div>
+      <div>
+        <a href="#" class="contribute-card">
+          <span class="contribute-card-icon" data-uk-icon="icon: search; ratio: 1.8"></span>
+          <h3>Tester</h3>
+          <p>Hunt bugs, test PRs, and file clear reports.</p>
+        </a>
+      </div>
+      <div>
+        <a href="#" class="contribute-card">
+          <span class="contribute-card-icon" data-uk-icon="icon: world; ratio: 1.8"></span>
+          <h3>Translator</h3>
+          <p>Help translate BlueWallet into your language.</p>
+        </a>
+      </div>
+      <div>
+        <a href="#" class="contribute-card">
+          <span class="contribute-card-icon" data-uk-icon="icon: pencil; ratio: 1.8"></span>
+          <h3>Content Creator</h3>
+          <p>Write docs and guides that help users understand Bitcoin.</p>
+        </a>
+      </div>
+    </div>
+    <ul id="contribute-panels" class="uk-switcher uk-margin-large-top">
+      <li>
+        <h2 class="uk-h2">Good First Issues & Help Wanted</h2>
+        <p class="uk-text-muted">Great starting points for new contributors, sorted by newest first.</p>
+
+        <div id="good-first-issues">
+          <p class="uk-text-muted">Loading issues...</p>
+        </div>
+
+        <div class="uk-text-center uk-margin-large-top">
+          <a href="https://github.com/BlueWallet/BlueWallet/issues?q=is%3Aissue+state%3Aopen+label%3A%22good+first+issue+%F0%9F%A5%87%22%2C%22help+wanted%22" target="_blank" class="uk-button uk-button-default">View all issues on GitHub</a>
+        </div>
+      </li>
+      <li>
+        <h2 class="uk-h2">Bug Reports</h2>
+        <p class="uk-text-muted">Help find and reproduce bugs to improve BlueWallet.</p>
+
+        <div id="bug-issues">
+          <p class="uk-text-muted">Loading issues...</p>
+        </div>
+
+        <div class="uk-text-center uk-margin-large-top">
+          <a href="https://github.com/BlueWallet/BlueWallet/issues?q=is%3Aissue+state%3Aopen+label%3Abug" target="_blank" class="uk-button uk-button-default">View all bug reports on GitHub</a>
+        </div>
+      </li>
+      <li>
+        <h2 class="uk-h2">Translation status</h2>
+        <p class="uk-text-muted">Percentages reflect translations merged in the BlueWallet app. Contribute on Transifex.</p>
+
+        <div id="translation-languages">
+          <p class="uk-text-muted">Loading translations...</p>
+        </div>
+
+        <div class="uk-text-center uk-margin-large-top">
+          <a href="https://explore.transifex.com/bluewallet/bluewallet/" target="_blank" class="uk-button uk-button-default">Join on Transifex</a>
+        </div>
+      </li>
+      <li>
+        <h2 class="uk-h2">Documentation</h2>
+        <p class="uk-text-muted">Browse our latest guides and help improve them for other users.</p>
+
+        <div id="doc-articles">
+          <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
+            {% assign latest_docs = site.docs | where_exp: "doc", "doc.url != '/docs/intro/'" | sort: 'title' %}
+            {% for doc in latest_docs %}
+            <div>
+              <div class="uk-card uk-card-default uk-box-shadow-medium uk-card-hover uk-card-body uk-inline border-radius-medium border-light">
+                <a class="uk-position-cover" href="{{ doc.url }}"></a>
+                <h3 class="uk-card-title uk-margin-small-top uk-margin-small-bottom">{{ doc.title }}</h3>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="uk-text-center uk-margin-large-top">
+          <a href="/docs/" class="uk-button uk-button-default">View all documentation</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

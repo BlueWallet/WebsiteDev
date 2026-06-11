@@ -5,21 +5,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>LNDhub on VPS with Ubuntu | BlueWallet - Bitcoin Wallet for iOS and Android</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="LNDhub on VPS with Ubuntu" />
 <meta name="author" content="BlueWallet" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1.\ You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet." />
-<meta property="og:description" content="To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1.\ You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet." />
+<meta name="description" content="To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1. You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet." />
+<meta name="twitter:description" property="og:description" content="To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1. You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet." />
 <link rel="canonical" href="https://bluewallet.io/docs/lndhub-ubuntu/" />
 <meta property="og:url" content="https://bluewallet.io/docs/lndhub-ubuntu/" />
 <meta property="og:site_name" content="BlueWallet - Bitcoin Wallet for iOS and Android" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-09T17:21:26+02:00" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LNDhub on VPS with Ubuntu" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://bluewallet.io/docs/lndhub-ubuntu/"},"@type":"BlogPosting","url":"https://bluewallet.io/docs/lndhub-ubuntu/","author":{"@type":"Person","name":"BlueWallet"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"headline":"LNDhub on VPS with Ubuntu","dateModified":"2024-09-09T17:21:26+02:00","description":"To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1.\\ You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet.","datePublished":"2024-09-09T17:21:26+02:00","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"BlueWallet"},"description":"To avoid rewriting things already well explained in other tutorials, I leave here a link to set up your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1. You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet.","headline":"LNDhub on VPS with Ubuntu","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bluewallet.io/logo-bluewallet.svg"},"name":"BlueWallet"},"url":"https://bluewallet.io/docs/lndhub-ubuntu/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -346,26 +347,26 @@
                     </div>
                     -->
                     <div class="article-content">
-                        <p>To avoid rewriting things already well explained in other tutorials, I leave here <a href="https://gist.github.com/bretton/0b22a0503a9eba09df86a23f3d625c13">a link to set up</a> your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1.\
+                        <p>To avoid rewriting things already well explained in other tutorials, I leave here <a href="https://gist.github.com/bretton/0b22a0503a9eba09df86a23f3d625c13">a link to set up</a> your Bitcoin&amp;Lightning node on Ubuntu 16.04, if you already have one you can jump to Step 1.<br />
 You can follow this or other guides as long as LND is the implementation of choice for Lightning, we will apply the necessary changes to configurations files in the next steps. If you are starting from scratch, I suggest to execute this on a VPS, for example a Digital Ocean’s droplet.</p>
 
 <h3>Step 1: Install Redis</h3>
 
 <p>LndHub uses Redis as database, install it with</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt update
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt update
 $ sudo apt install redis-server
 </code></pre></div></div>
 
 <p>and edit two important settings in</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/redis/redis.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/redis/redis.conf
 
 </code></pre></div></div>
 
-<p>changing the line about <code class="highlighter-rouge">supervised</code> from <code class="highlighter-rouge">supervised no</code> to <code class="highlighter-rouge">supervised systemd</code></p>
+<p>changing the line about <code class="language-plaintext highlighter-rouge">supervised</code> from <code class="language-plaintext highlighter-rouge">supervised no</code> to <code class="language-plaintext highlighter-rouge">supervised systemd</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you run Redis from upstart or systemd, Redis can interact with your
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
 #   supervised no      - no supervision interaction
 #   supervised upstart - signal upstart by putting Redis into SIGSTOP mode
@@ -377,9 +378,9 @@ $ sudo apt install redis-server
 supervised systemd
 </code></pre></div></div>
 
-<p>and the line <code class="highlighter-rouge">appendonly no</code> to <code class="highlighter-rouge">appendonly yes</code> to enable disk persistance.</p>
+<p>and the line <code class="language-plaintext highlighter-rouge">appendonly no</code> to <code class="language-plaintext highlighter-rouge">appendonly yes</code> to enable disk persistance.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># AOF and RDB persistence can be enabled at the same time without problems.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># AOF and RDB persistence can be enabled at the same time without problems.
 # If the AOF is enabled on startup Redis will load the AOF, that is the file
 # with the better durability guarantees.
 #
@@ -398,13 +399,13 @@ appendfilename "appendonly.aof"
 
 <p>Setup Redis to start automatically after a system restart. Open the file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/redis.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/redis.service
 
 </code></pre></div></div>
 
 <p>and paste the following script inside.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
 Description=Redis In-Memory Data Store
 After=network.target
 
@@ -419,21 +420,21 @@ Restart=always
 WantedBy=multi-user.target
 </code></pre></div></div>
 
-<p>Now start and enable it with <code class="highlighter-rouge">systemctl</code>.</p>
+<p>Now start and enable it with <code class="language-plaintext highlighter-rouge">systemctl</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start redis
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start redis
 $ sudo systemctl enable redis
 </code></pre></div></div>
 
 <h3>Step 3: Bitcoin&amp;LND configuration files</h3>
 
-<p>Since <code class="highlighter-rouge">bitcoin.conf</code> and <code class="highlighter-rouge">lnd.conf</code> are often topic of discussion, here I paste my files that are currently working with Bitcoin v0.17.1 and LND v0.5.1-beta, except for passwords of course.</p>
+<p>Since <code class="language-plaintext highlighter-rouge">bitcoin.conf</code> and <code class="language-plaintext highlighter-rouge">lnd.conf</code> are often topic of discussion, here I paste my files that are currently working with Bitcoin v0.17.1 and LND v0.5.1-beta, except for passwords of course.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano .bitcoin/bitcoin.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano .bitcoin/bitcoin.conf
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server=1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server=1
 txindex=1
 daemon=1
 externalip=104.248.248.9
@@ -448,11 +449,11 @@ rpcport=8332
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano .lnd/lnd.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano .lnd/lnd.conf
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Application Options]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Application Options]
 ; set external IP if not using NAT
 externalip=104.248.248.9
 ; set node alias (seen in explorers)
@@ -472,29 +473,29 @@ bitcoind.zmqpubrawtx=tcp://127.0.0.1:28333
 
 </code></pre></div></div>
 
-<p>Note: <code class="highlighter-rouge">external IP</code> field is to be changed according to your VPS IP.</p>
+<p>Note: <code class="language-plaintext highlighter-rouge">external IP</code> field is to be changed according to your VPS IP.</p>
 
 <h3>Step 4: Download and configure LndHub</h3>
 
 <p>You are now ready to get and install LndHub, start copying the github repository with</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/BlueWallet/LndHub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/BlueWallet/LndHub
 
 </code></pre></div></div>
 
-<p>and copy <code class="highlighter-rouge">admin.macaroon</code> and <code class="highlighter-rouge">tls.cert</code> in root folder of LndHub.</p>
+<p>and copy <code class="language-plaintext highlighter-rouge">admin.macaroon</code> and <code class="language-plaintext highlighter-rouge">tls.cert</code> in root folder of LndHub.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp .lnd/data/chain/bitcoin/mainnet/admin.macaroon LndHub/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp .lnd/data/chain/bitcoin/mainnet/admin.macaroon LndHub/
 $ cp .lnd/tls.cert LndHub/
 </code></pre></div></div>
 
-<p>Now you need to set the config file of LndHub. As for <code class="highlighter-rouge">bitcoind</code> and <code class="highlighter-rouge">lnd</code> I leave you here my version.</p>
+<p>Now you need to set the config file of LndHub. As for <code class="language-plaintext highlighter-rouge">bitcoind</code> and <code class="language-plaintext highlighter-rouge">lnd</code> I leave you here my version.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano LndHub/config.js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano LndHub/config.js
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let config = {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let config = {
   bitcoind: {
     rpc: 'http://user:password@127.0.0.1:8332',
   },
@@ -522,26 +523,26 @@ module.exports = config;
 
 <p>Node is required to install and run LndHub, install it with the following command.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install nodejs npm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install nodejs npm
 
 </code></pre></div></div>
 
 <p>Enter the LndHub folder and install node modules.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd LndHub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd LndHub
 $ npm install
 </code></pre></div></div>
 
 <p>Compile babeljs</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g babel-cli
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g babel-cli
 $ mkdir build
 $ babel ./ --out-dir ./build --copy-files --ignore node_modules
 </code></pre></div></div>
 
 <p>and, finally, run it.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node build/index.js 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node build/index.js 
 
 </code></pre></div></div>
 
@@ -549,13 +550,13 @@ $ babel ./ --out-dir ./build --copy-files --ignore node_modules
 
 <p>Setup LndHub to start automatically after a system restart. Open the file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/lndhub.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano /etc/systemd/system/lndhub.service
 
 </code></pre></div></div>
 
 <p>and paste the following script inside.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
 Description=LndHub Wrapper for Lightning Daemon
 Wants=lnd.service
 After=lnd.service
@@ -575,9 +576,9 @@ RestartSec=60
 WantedBy=multi-user.target
 </code></pre></div></div>
 
-<p>Now start and enable it with <code class="highlighter-rouge">systemctl</code>.</p>
+<p>Now start and enable it with <code class="language-plaintext highlighter-rouge">systemctl</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable lndhub
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable lndhub
 $ sudo systemctl start lndhub
 </code></pre></div></div>
 
@@ -585,8 +586,8 @@ $ sudo systemctl start lndhub
 
 <h3>Step 7: Link Bluewallet to your node</h3>
 
-<p>Open the Bluewallet app on your smartphone, go to settings (top-right corner) -&gt; Lightning Settings and add your node URL <a href="http://vps-ip-address:3000/">http://vps-ip-address:3000/</a>.\
-There is no confirmation message when you click Save at the moment, v3.7.2 on iOS, so don’t worry if you don’t see any feedback. The first test you can do is create a new Lightning wallet and generate an invoice, and if no error is returned, it’s all correctly configured.\
+<p>Open the Bluewallet app on your smartphone, go to settings (top-right corner) -&gt; Lightning Settings and add your node URL <a href="http://vps-ip-address:3000/">http://vps-ip-address:3000/</a>.<br />
+There is no confirmation message when you click Save at the moment, v3.7.2 on iOS, so don’t worry if you don’t see any feedback. The first test you can do is create a new Lightning wallet and generate an invoice, and if no error is returned, it’s all correctly configured.<br />
 Your bank is born, let’s take a moment to think about what you achieved here: you can now pay in BTC from your smartphone instantly with Lightning, everywhere in the world, and you can let somebody who trusts you join your node and create their account linked with your hub just downloading an app.</p>
 
                         
@@ -1084,8 +1085,9 @@ Your bank is born, let’s take a moment to think about what you achieved here: 
     
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="/assets/js/phone.js"></script>
 <script src="/assets/js/newsletter.js"></script>
+<script src="/assets/js/release-info.js"></script>
+<script src="/assets/js/contribute.js"></script>
 
     </body>
 
