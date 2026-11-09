@@ -13,7 +13,7 @@ layout: default
             </div>
 
             {% if page.image %}
-                <img class="uk-width-1-1 uk-border-rounded uk-margin-medium-bottom" src="{{ site.uploads | relative_url }}{{ page.image }}" alt="{{ page.title | escape }}">
+                <img class="uk-width-1-1 uk-border-rounded uk-margin-medium-bottom" src="{{ page.image | uploads_src }}" alt="{{ page.title | escape }}">
             {% endif %}
 
             <div class="article-content link-primary">
